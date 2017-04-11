@@ -29,6 +29,7 @@ my $build = Module::Build->new(
 			repository => 'https://github.com/tupinek/perl-WWW-Splunk',
 		},
 	},
+	recursive_test_files => 1,
 );
 
 $build->create_build_script;

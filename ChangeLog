@@ -1,5 +1,8 @@
 2.07
 ======================================
+[TESTS]
+Rewrite tests to recursive way, dir per module
+
 [DOC]
 Rewrite to one style
 

@@ -1,3 +1,6 @@
+use strict;
+use warnings;
+
 use WWW::Splunk::XMLParser;
 use XML::LibXML;
 use Test::More tests => 5;
