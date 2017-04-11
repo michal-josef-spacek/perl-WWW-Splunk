@@ -35,10 +35,10 @@ our $prefix = '/services';
 
 A constructor.
 
-  my $splunk = new WWW::Splunk::API ({
-          host    => $host,
-          port    => $port,
-          login   => $login,
+  my $splunk = WWW::Splunk::API->new({
+          host => $host,
+          port => $port,
+          login => $login,
           password => $password,
           unsafe_ssl => 0,
           verbose => 0,
@@ -74,7 +74,7 @@ sub new
 
 =head2 B<delete> (F<parameters>)
 
-Wrapper around HTTP::Request::Common::DELETE ().
+Wrapper around HTTP::Request::Common::DELETE().
 
 =cut
 sub delete
@@ -86,7 +86,7 @@ sub delete
 
 =head2 B<post> (F<parameters>)
 
-Wrapper around HTTP::Request::Common::POST ().
+Wrapper around HTTP::Request::Common::POST().
 
 =cut
 sub post
@@ -98,7 +98,7 @@ sub post
 
 =head2 B<get> (F<parameters>)
 
-Wrapper around HTTP::Request::Common::GET ().
+Wrapper around HTTP::Request::Common::GET().
 
 =cut
 sub get
@@ -110,7 +110,7 @@ sub get
 
 =head2 B<head> (F<parameters>)
 
-Wrapper around HTTP::Request::Common::HEAD ().
+Wrapper around HTTP::Request::Common::HEAD().
 Not used anywhere in splunk API
 
 =cut
@@ -123,7 +123,7 @@ sub head
 
 =head2 B<put> (F<parameters>)
 
-Wrapper around HTTP::Request::Common::PUT ().
+Wrapper around HTTP::Request::Common::PUT().
 Not used anywhere in splunk API
 
 =cut

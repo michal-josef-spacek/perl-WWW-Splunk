@@ -8,19 +8,19 @@ WWW::Splunk - Client library for Splunk log search engine
 
   use WWW::Splunk;
 
-  my $splunk = new WWW::Splunk ({
-          host    => $host,
-          port    => $port,
-          login   => $login,
+  my $splunk = WWW::Splunk->new({
+          host => $host,
+          port => $port,
+          login => $login,
           password => $password,
           unsafe_ssl => 1,
           verbose => 0,
   });
 
-  my $sid = $splunk->start_search ('selinux avc');
-  $splunk->poll_search ($sid);
-  until ($splunk->results_read ($sid)) {
-    print scalar $splunk->search_results ($sid);
+  my $sid = $splunk->start_search('selinux avc');
+  $splunk->poll_search($sid);
+  until ($splunk->results_read($sid)) {
+          print scalar $splunk->search_results($sid);
   }
   print " results found\n";
 
