@@ -21,7 +21,6 @@ package WWW::Splunk::API;
 
 use LWP::UserAgent;
 use HTTP::Request::Common;
-use Text::CSV;
 use WWW::Splunk::XMLParser;
 use Carp;
 

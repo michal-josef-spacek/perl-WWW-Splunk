@@ -1,4 +1,7 @@
 2.07
+ [FIXES]
+ - Remove dependency to obsolete Text::CSV.
+
  [TESTS]
  - Rewrite tests to recursive way, dir per module
 
