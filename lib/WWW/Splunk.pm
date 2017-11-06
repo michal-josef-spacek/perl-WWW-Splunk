@@ -49,8 +49,8 @@ use base qw/WWW::Splunk::API/;
 Initiate a search, return a SID (Search ID) string.
 
 =cut
-sub start_search
-{
+
+sub start_search {
 	my $self = shift;
 	my $string = shift;
 	my $since = shift;
@@ -83,8 +83,8 @@ Finishes only if connection terminates (potentially never), returning number of
 results consumed.
 
 =cut
-sub rt_search
-{
+
+sub rt_search {
 	my $self = shift;
 	my $string = shift;
 	my $callback = shift;
@@ -110,8 +110,8 @@ sub rt_search
 Return true if the search is finished.
 
 =cut
-sub search_done
-{
+
+sub search_done {
 	my $self = shift;
 	my $sid = shift;
 
@@ -124,8 +124,8 @@ sub search_done
 Wait for a search to finish.
 
 =cut
-sub poll_search
-{
+
+sub poll_search {
 	my $self = shift;
 	my $sid = shift;
 
@@ -142,8 +142,8 @@ with single L<WWW::Splunk> instance. Otherwise,
 L<WWW::Splunk> is perfectly thread-safe.
 
 =cut
-sub search_results
-{
+
+sub search_results {
 	my $self = shift;
 	my $sid = shift;
 
@@ -162,8 +162,8 @@ Return true if search is finished and all there are no
 more results to read (everything was fetched with L<search_results>).
 
 =cut
-sub results_read
-{
+
+sub results_read {
 	my $self = shift;
 	my $sid = shift;
 

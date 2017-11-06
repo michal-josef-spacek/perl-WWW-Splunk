@@ -44,8 +44,8 @@ A constructor.
   });
 
 =cut
-sub new
-{
+
+sub new {
 	my $class = shift;
 	my $self = shift;
 
@@ -76,8 +76,8 @@ sub new
 Wrapper around HTTP::Request::Common::DELETE().
 
 =cut
-sub delete
-{
+
+sub delete {
 	my $self = shift;
 	print "DELETE" if $self->{verbose};
 	$self->request (\&DELETE, @_);
@@ -88,8 +88,8 @@ sub delete
 Wrapper around HTTP::Request::Common::POST().
 
 =cut
-sub post
-{
+
+sub post {
 	my $self = shift;
 	print "POST" if $self->{verbose};
 	$self->request (\&POST, @_);
@@ -100,8 +100,8 @@ sub post
 Wrapper around HTTP::Request::Common::GET().
 
 =cut
-sub get
-{
+
+sub get {
 	my $self = shift;
 	print "GET" if $self->{verbose};
 	$self->request (\&GET, @_);
@@ -113,8 +113,8 @@ Wrapper around HTTP::Request::Common::HEAD().
 Not used anywhere in splunk API
 
 =cut
-sub head
-{
+
+sub head {
 	my $self = shift;
 	print "HEAD" if $self->{verbose};
 	$self->request (\&HEAD, @_);
@@ -126,8 +126,8 @@ Wrapper around HTTP::Request::Common::PUT().
 Not used anywhere in splunk API
 
 =cut
-sub put
-{
+
+sub put {
 	my $self = shift;
 	print "PUT" if $self->{verbose};
 	$self->request (\&PUT, @_);
@@ -148,6 +148,7 @@ Call-back function can be specified for a single special case, where a XML strea
 of <results> elements is expected.
 
 =cut
+
 sub request {
 	my $self = shift;
 	my $method = shift;

@@ -30,8 +30,8 @@ Return a perl structure from a XML string, if it's
 parsable, otherwise return a raw XML::LibXML object
 
 =cut
-sub parse
-{
+
+sub parse {
 	my $xml = shift;
 
 	my @tree = eval { parsetree ($xml) };
@@ -44,8 +44,8 @@ sub parse
 Parse a XML node tree recursively.
 
 =cut
-sub parsetree
-{
+
+sub parsetree {
 	my $xml = shift;
 	my @retval;
 
