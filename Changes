@@ -1,5 +1,6 @@
 2.07
  [FIXES]
+ - Fix bug with second search on object.
  - Remove dependency to obsolete Text::CSV.
 
  [TESTS]

@@ -56,6 +56,8 @@ sub start_search
 	my $since = shift;
 	my $until = shift;
 
+	delete $self->{last_read};
+
 	# Format dates
 	($since, $until) = map { defined $_ ? scalar UnixDate (ParseDate ($_) || $_, '%O') || $_ : undef }
 		($since, $until);
