@@ -69,6 +69,7 @@ sub start_search {
 		unless $response and ref $response eq 'XML::LibXML::Document';
 	my $sid = $response->findvalue ('/response/sid');
 	croak 'Bad response' unless defined $sid;
+
 	return $sid;
 }
 
@@ -111,6 +112,7 @@ sub search_done {
 	my ($self, $sid) = @_;
 
 	my $search = $self->get ('/search/jobs/'.$sid);
+
 	return $search->{isDone};
 }
 
