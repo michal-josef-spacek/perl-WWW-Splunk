@@ -125,7 +125,9 @@ Wait for a search to finish.
 sub poll_search {
 	my ($self, $sid) = @_;
 
-	until ($self->search_done ($sid)) { sleep 1; }
+	until ($self->search_done ($sid)) {
+		sleep 1;
+	}
 }
 
 =head2 B<search_results> (F<sid>)
