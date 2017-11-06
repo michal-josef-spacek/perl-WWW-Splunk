@@ -68,7 +68,7 @@ sub start_search {
 	die 'Unexpected response format '
 		unless $response and ref $response eq 'XML::LibXML::Document';
 	my $sid = $response->findvalue ('/response/sid');
-	croak "Bad response" unless defined $sid;
+	croak 'Bad response' unless defined $sid;
 	return $sid;
 }
 
