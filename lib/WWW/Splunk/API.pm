@@ -46,8 +46,7 @@ A constructor.
 =cut
 
 sub new {
-	my $class = shift;
-	my $self = shift;
+	my ($class, $self) = @_;
 
 	$self->{port} ||= 8089;
 	$self->{host} ||= 'localhost';
@@ -78,9 +77,10 @@ Wrapper around HTTP::Request::Common::DELETE().
 =cut
 
 sub delete {
-	my $self = shift;
+	my ($self, @args) = @_;
+
 	print "DELETE" if $self->{verbose};
-	$self->request (\&DELETE, @_);
+	$self->request (\&DELETE, @args);
 }
 
 =head2 B<post> (F<parameters>)
@@ -90,9 +90,10 @@ Wrapper around HTTP::Request::Common::POST().
 =cut
 
 sub post {
-	my $self = shift;
+	my ($self, @args) = @_;
+
 	print "POST" if $self->{verbose};
-	$self->request (\&POST, @_);
+	$self->request (\&POST, @args);
 }
 
 =head2 B<get> (F<parameters>)
@@ -102,9 +103,10 @@ Wrapper around HTTP::Request::Common::GET().
 =cut
 
 sub get {
-	my $self = shift;
+	my ($self, @args) = @_;
+
 	print "GET" if $self->{verbose};
-	$self->request (\&GET, @_);
+	$self->request (\&GET, @args);
 }
 
 =head2 B<head> (F<parameters>)
@@ -115,9 +117,10 @@ Not used anywhere in splunk API
 =cut
 
 sub head {
-	my $self = shift;
+	my ($self, @args) = @_;
+
 	print "HEAD" if $self->{verbose};
-	$self->request (\&HEAD, @_);
+	$self->request (\&HEAD, @args);
 }
 
 =head2 B<put> (F<parameters>)
@@ -128,9 +131,10 @@ Not used anywhere in splunk API
 =cut
 
 sub put {
-	my $self = shift;
+	my ($self, @args) = @_;
+
 	print "PUT" if $self->{verbose};
-	$self->request (\&PUT, @_);
+	$self->request (\&PUT, @args);
 }
 
 =head2 B<request> (F<method>, F<location>, [F<data>], [F<callback>])
@@ -150,11 +154,7 @@ of <results> elements is expected.
 =cut
 
 sub request {
-	my $self = shift;
-	my $method = shift;
-	my $location = shift;
-	my $data = shift;
-	my $callback = shift;
+	my ($self, $method, $location, $data, $callback) = @_;
 
 	my $url = $self->{url}.$prefix.$location;
 	if ($self->{verbose}) {

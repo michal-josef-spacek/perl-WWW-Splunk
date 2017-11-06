@@ -51,10 +51,7 @@ Initiate a search, return a SID (Search ID) string.
 =cut
 
 sub start_search {
-	my $self = shift;
-	my $string = shift;
-	my $since = shift;
-	my $until = shift;
+	my ($self, $string, $since, $until) = @_;
 
 	delete $self->{last_read};
 
@@ -85,12 +82,11 @@ results consumed.
 =cut
 
 sub rt_search {
-	my $self = shift;
-	my $string = shift;
-	my $callback = shift;
-	my $since = shift || 'rt';
-	my $until = shift || 'rt';
-	my $counter = 0;
+	my ($self, $string, $callback, $since, $until, $counter) = @_;
+
+	$since ||= 'rt';
+	$until ||= 'rt';
+	$counter ||= 0;
 
 	$self->post ('/search/jobs/export', {
 		search => "search $string",
@@ -112,8 +108,7 @@ Return true if the search is finished.
 =cut
 
 sub search_done {
-	my $self = shift;
-	my $sid = shift;
+	my ($self, $sid) = @_;
 
 	my $search = $self->get ('/search/jobs/'.$sid);
 	return $search->{isDone};
@@ -126,8 +121,7 @@ Wait for a search to finish.
 =cut
 
 sub poll_search {
-	my $self = shift;
-	my $sid = shift;
+	my ($self, $sid) = @_;
 
 	until ($self->search_done ($sid)) { sleep 1; }
 }
@@ -144,8 +138,7 @@ L<WWW::Splunk> is perfectly thread-safe.
 =cut
 
 sub search_results {
-	my $self = shift;
-	my $sid = shift;
+	my ($self, $sid) = @_;
 
 	my $done = $self->search_done ($sid);
 	my @results = $self->get ('/search/jobs/'.$sid.'/results?count=1024&offset='.
@@ -164,8 +157,7 @@ more results to read (everything was fetched with L<search_results>).
 =cut
 
 sub results_read {
-	my $self = shift;
-	my $sid = shift;
+	my ($self, $sid) = @_;
 
 	return undef if not defined $self->{last_read};
 	return $self->{last_read} eq 0;
