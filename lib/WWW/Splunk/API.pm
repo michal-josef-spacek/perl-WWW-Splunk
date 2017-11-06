@@ -67,7 +67,7 @@ sub new {
 		$self->{agent}->agent ("$class/$VERSION ");
 	}
 
-	bless $self, $class;
+	return bless $self, $class;
 }
 
 =head2 B<delete> (F<parameters>)
