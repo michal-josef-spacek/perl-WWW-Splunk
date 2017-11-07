@@ -32,6 +32,9 @@ my $build = Module::Build->new(
 		'Test::Pod::Coverage' => 0,
 		'XML::LibXML' => 0,
 	},
+	configure_requires => {
+		'Module::Build' => 0.42,
+	},
 	meta_merge => {
 		resources => {
 			repository => 'https://github.com/tupinek/perl-WWW-Splunk',
