@@ -37,20 +37,31 @@
             "XML::LibXML" : "0",
             "perl" : "5.01"
          }
+      },
+      "test" : {
+         "requires" : {
+            "English" : "0",
+            "File::Object" : "0",
+            "Test::More" : "0",
+            "Test::NoWarnings" : "0",
+            "Test::Pod" : "0",
+            "Test::Pod::Coverage" : "0",
+            "XML::LibXML" : "0"
+         }
       }
    },
    "provides" : {
       "WWW::Splunk" : {
          "file" : "lib/WWW/Splunk.pm",
-         "version" : "2.07"
+         "version" : "2.08"
       },
       "WWW::Splunk::API" : {
          "file" : "lib/WWW/Splunk/API.pm",
-         "version" : "2.07"
+         "version" : "2.08"
       },
       "WWW::Splunk::XMLParser" : {
          "file" : "lib/WWW/Splunk/XMLParser.pm",
-         "version" : "2.07"
+         "version" : "2.08"
       }
    },
    "release_status" : "stable",
@@ -62,5 +73,5 @@
          "url" : "https://github.com/tupinek/perl-WWW-Splunk"
       }
    },
-   "version" : "2.07"
+   "version" : "2.08"
 }
