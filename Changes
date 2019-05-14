@@ -1,4 +1,6 @@
 2.09
+ [DOC]
+ - Add constructor default values to WWW::Splunk::API.
 
 2.08 2017-11-07T10:07:05+01:00
  [FIXES]

@@ -43,6 +43,13 @@ A constructor.
           verbose => 0,
   });
 
+Default values are:
+ - port - 8089
+ - host - localhost
+ - url - https://$host:$port
+ - verbose - 0
+ - unsafe_ssl - 0
+
 =cut
 
 sub new {
