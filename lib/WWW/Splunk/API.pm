@@ -49,6 +49,7 @@ Default values are:
  - verbose - 0
  - unsafe_ssl - 0
  - service_prefix - /services
+ - search - 1
 
 =cut
 
@@ -60,6 +61,7 @@ sub new {
 	$self->{url} ||= 'https://'.$self->{host}.':'.$self->{port};
 	$self->{verbose} ||= 0;
 	$self->{service_prefix} ||= '/services';
+	$self->{search} ||= 1;
 
 	# Set up user agent unless an existing one was passed
 	unless ($self->{agent}) {

@@ -59,9 +59,13 @@ sub start_search {
 	($since, $until) = map { defined $_ ? scalar UnixDate (ParseDate ($_) || $_, '%O') || $_ : undef }
 		($since, $until);
 
+	if ($self->{search}) {
+		$string = 'search '.$string;
+	}
+
 	$self->{results_consumed} = 0;
 	my $response = $self->post ('/search/jobs', {
-		search => "search $string",
+		search => "$string",
 		(defined $since ? (earliest_time => $since) : ()),
 		(defined $until ? (latest_time => $until) : ()),
 	});
