@@ -1,0 +1,9 @@
+TODO
+====
+1. Umet vratit error, pokud to selze.
+2. Vyhodit s WWW::Splunk::API cast, ktera resi error v XML, to by mela byt samostatna class.
+   Lepe receno, je dost neprehledne, kdyz v request() je mix ruznych stavu napreskacku.
+3.
+
+Applied
+=======
