@@ -28,7 +28,6 @@ use strict;
 use warnings;
 
 our $VERSION = '2.09';
-our $prefix = '/services';
 
 =head2 B<new> (F<params>)
 
@@ -49,6 +48,7 @@ Default values are:
  - url - https://$host:$port
  - verbose - 0
  - unsafe_ssl - 0
+ - service_prefix - /services
 
 =cut
 
@@ -59,6 +59,7 @@ sub new {
 	$self->{host} ||= 'localhost';
 	$self->{url} ||= 'https://'.$self->{host}.':'.$self->{port};
 	$self->{verbose} ||= 0;
+	$self->{service_prefix} ||= '/services';
 
 	# Set up user agent unless an existing one was passed
 	unless ($self->{agent}) {
@@ -163,7 +164,7 @@ of <results> elements is expected.
 sub request {
 	my ($self, $method, $location, $data, $callback) = @_;
 
-	my $url = $self->{url}.$prefix.$location;
+	my $url = $self->{url}.$self->{service_prefix}.$location;
 	if ($self->{verbose}) {
 		print " $url\n";
 		if (defined $data) {

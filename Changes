@@ -1,4 +1,7 @@
 2.09
+ [CODE]
+ - Move hardcoded prefix=/services variable to 'service_prefix' constructor variable.
+
  [DOC]
  - Add constructor default values to WWW::Splunk::API.
 
