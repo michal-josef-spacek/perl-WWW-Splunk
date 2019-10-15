@@ -38,7 +38,7 @@ our $VERSION = '2.09';
 # Subcommand dispatch
 
 my %commands = (
-	search	=> \&search,
+	search => \&search,
 );
 
 # Command line options
@@ -84,16 +84,16 @@ Subcommand to run. Currently defined is just B<search>.
 
 =cut
 
-new Getopt::Long::Parser (
+Getopt::Long::Parser->new(
         config => [qw/require_order/]
 )->getoptions (
-	"host=s"	=> \$host,
-	"port=i"	=> \$port,
-	"login=s"	=> \$login,
-	"password=s"	=> \$password,
-	"insecure"	=> \$insecure,
-	"h|help"	=> sub { pod2usage (0) },
-	"m|man"		=> sub { pod2usage (-verbose => 2) },
+	"host=s" => \$host,
+	"port=i" => \$port,
+	"login=s" => \$login,
+	"password=s" => \$password,
+	"insecure" => \$insecure,
+	"h|help" => sub { pod2usage (0) },
+	"m|man" => sub { pod2usage (-verbose => 2) },
 ) or die "Could not parse command line";
 
 # Dispatch
@@ -102,10 +102,10 @@ my $subcommand = shift @ARGV;
 die "Missing subcommand" unless $subcommand;
 die "Invalid subcommand" unless exists $commands{$subcommand};
 
-my $splunk = new WWW::Splunk ({
-	host	=> $host,
-	port	=> $port,
-	login	=> $login,
+my $splunk = WWW::Splunk->new({
+	host => $host,
+	port => $port,
+	login => $login,
 	password => $password,
 	unsafe_ssl => $insecure,
 });
@@ -181,11 +181,11 @@ Switch output format style.
 sub search
 {
 	my ($since, $until, $format);
-        GetOptionsFromArray (\@_,
-                't|since=s' => \$since,
-                'T|until=s' => \$until,
-                'f|format=s' => \$format,
-        ) or die 'Bad arguments to search';
+	GetOptionsFromArray (\@_,
+		't|since=s' => \$since,
+		'T|until=s' => \$until,
+		'f|format=s' => \$format,
+	) or die 'Bad arguments to search';
 
 	if (($since and $since =~ /^rt/) or ($until and $until =~ /^rt/)) {
 		# Real time search
