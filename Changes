@@ -4,6 +4,7 @@
    adding backward compatible 'search' constructor variable which is adding
    'search' keyword to each Splunk query.
  - Move hardcoded prefix=/services variable to 'service_prefix' constructor variable.
+ - Remove spaces before subroutine/method call in bin/sc.
  - Retab in bin/sc.
 
  [DOC]

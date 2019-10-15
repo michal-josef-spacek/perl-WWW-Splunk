@@ -86,14 +86,14 @@ Subcommand to run. Currently defined is just B<search>.
 
 Getopt::Long::Parser->new(
         config => [qw/require_order/]
-)->getoptions (
+)->getoptions(
 	"host=s" => \$host,
 	"port=i" => \$port,
 	"login=s" => \$login,
 	"password=s" => \$password,
 	"insecure" => \$insecure,
-	"h|help" => sub { pod2usage (0) },
-	"m|man" => sub { pod2usage (-verbose => 2) },
+	"h|help" => sub { pod2usage(0) },
+	"m|man" => sub { pod2usage(-verbose => 2) },
 ) or die "Could not parse command line";
 
 # Dispatch
@@ -181,23 +181,24 @@ Switch output format style.
 sub search
 {
 	my ($since, $until, $format);
-	GetOptionsFromArray (\@_,
+	GetOptionsFromArray(\@_,
 		't|since=s' => \$since,
 		'T|until=s' => \$until,
 		'f|format=s' => \$format,
 	) or die 'Bad arguments to search';
 
 	if (($since and $since =~ /^rt/) or ($until and $until =~ /^rt/)) {
+
 		# Real time search
-		$splunk->rt_search (join (' ', @_), sub {
-			print_results ($format => @_);
+		$splunk->rt_search(join(' ', @_), sub {
+			print_results($format => @_);
 		}, $since, $until);
 	} else {
-		my $sid = $splunk->start_search (join (' ', @_), $since, $until);
+		my $sid = $splunk->start_search(join(' ', @_), $since, $until);
 
-		until ($splunk->results_read ($sid)) {
-			my @results = $splunk->search_results ($sid);
-			print_results ($format => @results);
+		until ($splunk->results_read($sid)) {
+			my @results = $splunk->search_results($sid);
+			print_results($format => @results);
 		}
 	}
 
