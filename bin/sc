@@ -96,8 +96,6 @@ Getopt::Long::Parser->new(
 	"m|man" => sub { pod2usage(-verbose => 2) },
 ) or die "Could not parse command line";
 
-# Dispatch
-
 my $subcommand = shift @ARGV;
 die "Missing subcommand" unless $subcommand;
 die "Invalid subcommand" unless exists $commands{$subcommand};
@@ -112,10 +110,7 @@ my $splunk = WWW::Splunk->new({
 
 exit $commands{$subcommand}->(@ARGV);
 
-# Implementation
-
-sub print_results
-{
+sub print_results {
 	my $format = shift;
 	return unless @_;
 

@@ -65,16 +65,17 @@ sub new {
 
 	# Set up user agent unless an existing one was passed
 	unless ($self->{agent}) {
-		$self->{agent} = new LWP::UserAgent
-			(ssl_opts =>  {verify_hostname => (not $self->{unsafe_ssl})});
+		$self->{agent} = LWP::UserAgent->new(
+			ssl_opts =>  {verify_hostname => (not $self->{unsafe_ssl})},
+		);
 		$self->{agent}->cookie_jar ({});
-		$self->{agent}->credentials (
+		$self->{agent}->credentials(
 			delete ($self->{host}).':'.(delete $self->{port}),
 			'/splunk',
 			delete $self->{login},
 			delete $self->{password},
 		) if exists $self->{login};
-		$self->{agent}->agent ("$class/$VERSION ");
+		$self->{agent}->agent("$class/$VERSION ");
 	}
 
 	return bless $self, $class;
@@ -90,7 +91,7 @@ sub delete {
 	my ($self, @args) = @_;
 
 	print "DELETE" if $self->{verbose};
-	$self->request (\&DELETE, @args);
+	$self->request(\&DELETE, @args);
 }
 
 =head2 B<post> (F<parameters>)
@@ -103,7 +104,7 @@ sub post {
 	my ($self, @args) = @_;
 
 	print "POST" if $self->{verbose};
-	$self->request (\&POST, @args);
+	$self->request(\&POST, @args);
 }
 
 =head2 B<get> (F<parameters>)
@@ -116,7 +117,7 @@ sub get {
 	my ($self, @args) = @_;
 
 	print "GET" if $self->{verbose};
-	$self->request (\&GET, @args);
+	$self->request(\&GET, @args);
 }
 
 =head2 B<head> (F<parameters>)
@@ -130,7 +131,7 @@ sub head {
 	my ($self, @args) = @_;
 
 	print "HEAD" if $self->{verbose};
-	$self->request (\&HEAD, @args);
+	$self->request(\&HEAD, @args);
 }
 
 =head2 B<put> (F<parameters>)
@@ -144,7 +145,7 @@ sub put {
 	my ($self, @args) = @_;
 
 	print "PUT" if $self->{verbose};
-	$self->request (\&PUT, @args);
+	$self->request(\&PUT, @args);
 }
 
 =head2 B<request> (F<method>, F<location>, [F<data>], [F<callback>])
@@ -189,15 +190,15 @@ sub request {
 		}
 	} else {
 		# A method string
-		$request = new HTTP::Request ($method, $url);
+		$request = HTTP::Request->($method, $url);
 	}
 
 	my $content_type = '';
 	my $buffer;
 
-	$self->{agent}->remove_handler ('response_header');
-	$self->{agent}->add_handler (response_header => sub {
-		my($response, $ua, $h) = @_;
+	$self->{agent}->remove_handler('response_header');
+	$self->{agent}->add_handler(response_header => sub {
+		my ($response, $ua, $h) = @_;
 
 		# Do not think of async processing of error responses
 		return 0 unless $response->is_success;
@@ -217,8 +218,8 @@ sub request {
 		}
 	});
 
-	$self->{agent}->remove_handler ('response_data');
-	$self->{agent}->add_handler (response_data => sub {
+	$self->{agent}->remove_handler('response_data');
+	$self->{agent}->add_handler(response_data => sub {
 		my ($response, $ua, $h, $data) = @_;
 
 		return 1 unless defined $buffer;
@@ -229,15 +230,15 @@ sub request {
 				last;
 			}
 
-			my $xml = XML::LibXML->load_xml (string => $_);
-			$callback->(WWW::Splunk::XMLParser::parse ($xml));
+			my $xml = XML::LibXML->load_xml(string => $_);
+			$callback->(WWW::Splunk::XMLParser::parse($xml));
 		}
 
 		return 1;
 	}) if $callback;
 
 	# Run it
-	my $response = $self->{agent}->request ($request);
+	my $response = $self->{agent}->request($request);
 	croak $response->header ('X-Died') if $response->header ('X-Died');
 
 	# Deal with HTTP errors
