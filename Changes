@@ -1,5 +1,6 @@
 2.09
  [CODE]
+ - Add possibility of getting user/password from ENV variables.
  - Add possibility of usage of e.g. »|inputloookup __table__« Splunk query by
    adding backward compatible 'search' constructor variable which is adding
    'search' keyword to each Splunk query.

@@ -45,8 +45,8 @@ my %commands = (
 
 my $host = 'localhost';
 my $port = 8089;
-my $login = 'admin';
-my $password = 'changeme';
+my $login = $ENV{SPLUNK_LOGIN} || 'admin';
+my $password = $ENV{SPLUNK_PASSWORD} || 'changeme';
 my $insecure = 0;
 
 =head1 OPTIONS
