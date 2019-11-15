@@ -6,7 +6,8 @@ TODO
 3. Popsat promenne konstruktoru v dokumentaci.
 4. Pridat testy pro WWW::Splunk.
 5. Pridat testy pro WWW::Splunk::API
-6.
+6. Implementovat multi-value - kdyz dam eval multivalue = split(variable, "__delimeter__", tak to potrebuji umet zpracovat.
+7.
 
 Applied
 =======
