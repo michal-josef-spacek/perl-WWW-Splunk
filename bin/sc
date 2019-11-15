@@ -200,6 +200,20 @@ sub search
 	return 0;
 }
 
+=head1 ENVIRONMENT VARIABLES
+
+=over
+
+=item B<SPLUNK_LOGIN>
+
+Splunk login.
+
+=item B<SPLUNK_PASSWORD>
+
+Splunk password.
+
+=back
+
 =head1 EXAMPLES
 
 =over
