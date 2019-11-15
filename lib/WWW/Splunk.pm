@@ -183,6 +183,25 @@ Bug fixes and feature enhancements are always welcome.
 
  This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
 
+=head1 DONATIONS
+
+If you use this library and find it useful, donations are greatly appreciated!
+
+=begin text
+
+ Use https://liberapay.com/skim/donate
+
+=end text
+
+=begin html
+
+<a href="https://liberapay.com/skim/donate">
+  <img alt="Donate using Liberapay"
+    src="https://liberapay.com/assets/widgets/donate.svg">
+</a>
+
+=end html
+
 =cut
 
 1;
