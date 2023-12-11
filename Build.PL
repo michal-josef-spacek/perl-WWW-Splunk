@@ -24,12 +24,8 @@ my $build = Module::Build->new(
 		'XML::LibXML' => 0,
 	},
 	test_requires => {
-		'English' => 0,
-		'File::Object' => 0,
 		'Test::More' => 0,
 		'Test::NoWarnings' => 0,
-		'Test::Pod' => 0,
-		'Test::Pod::Coverage' => 0,
 		'XML::LibXML' => 0,
 	},
 	configure_requires => {
