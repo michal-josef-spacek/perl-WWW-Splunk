@@ -1,10 +1,11 @@
 2.09
  [CODE]
  - Add possibility of getting user/password from ENV variables.
- - Add possibility of usage of e.g. »|inputloookup __table__« Splunk query by
-   adding backward compatible 'search' constructor variable which is adding
-   'search' keyword to each Splunk query.
- - Move hardcoded prefix=/services variable to 'service_prefix' constructor variable.
+ - Add possibility of usage of e.g. »|inputloookup __table__« Splunk query
+   by adding backward compatible 'search' constructor variable which is
+   adding 'search' keyword to each Splunk query.
+ - Move hardcoded prefix=/services variable to 'service_prefix' constructor
+   variable.
  - Remove spaces before subroutine/method call in bin/sc.
  - Retab in bin/sc.
 
