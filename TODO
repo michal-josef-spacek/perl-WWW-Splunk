@@ -7,7 +7,8 @@ TODO
 4. Add tests for WWW::Splunk.
 5. Add tests for WWW::Splunk::API
 6. Implement multi-value - If I have 'eval multivalue = split(variable, "__delimeter__"), I need to process.
-7.
+7. Add ci.
+8.
 
 Applied
 =======
