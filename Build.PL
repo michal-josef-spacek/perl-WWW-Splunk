@@ -37,7 +37,7 @@ my $build = Module::Build->new(
 	},
 	meta_merge => {
 		resources => {
-			repository => 'https://github.com/tupinek/perl-WWW-Splunk',
+			repository => 'https://github.com/michal-josef-spacek/perl-WWW-Splunk',
 		},
 	},
 	recursive_test_files => 1,

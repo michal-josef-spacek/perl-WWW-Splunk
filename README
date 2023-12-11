@@ -53,8 +53,8 @@ AUTHORS
     Lubomir Rintel, <lkundrak@v3.sk>, Michal Josef Špaček <skim@cpan.org>
 
     The code is hosted on GitHub
-    <http://github.com/tupinek/perl-WWW-Splunk>. Bug fixes and feature
-    enhancements are always welcome.
+    <http://github.com/michal-josef-spacek/perl-WWW-Splunk>. Bug fixes and
+    feature enhancements are always welcome.
 
 LICENSE
      This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.

@@ -70,7 +70,7 @@
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "https://github.com/tupinek/perl-WWW-Splunk"
+         "url" : "https://github.com/michal-josef-spacek/perl-WWW-Splunk"
       }
    },
    "version" : "2.09"
