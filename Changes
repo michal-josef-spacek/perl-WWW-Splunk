@@ -1,4 +1,4 @@
-2.09
+2.09 2023-12-11T09:50:11+01:00
  [CODE]
  - Add possibility of getting user/password from ENV variables.
  - Add possibility of usage of e.g. »|inputloookup __table__« Splunk query
