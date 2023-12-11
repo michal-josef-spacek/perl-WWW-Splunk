@@ -48,15 +48,15 @@
    "provides" : {
       "WWW::Splunk" : {
          "file" : "lib/WWW/Splunk.pm",
-         "version" : "2.09"
+         "version" : "2.10"
       },
       "WWW::Splunk::API" : {
          "file" : "lib/WWW/Splunk/API.pm",
-         "version" : "2.09"
+         "version" : "2.10"
       },
       "WWW::Splunk::XMLParser" : {
          "file" : "lib/WWW/Splunk/XMLParser.pm",
-         "version" : "2.09"
+         "version" : "2.10"
       }
    },
    "release_status" : "stable",
@@ -71,6 +71,6 @@
          "url" : "https://github.com/michal-josef-spacek/perl-WWW-Splunk"
       }
    },
-   "version" : "2.09",
+   "version" : "2.10",
    "x_serialization_backend" : "JSON::PP version 4.16"
 }

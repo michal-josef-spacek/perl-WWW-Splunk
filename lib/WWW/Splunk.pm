@@ -36,7 +36,7 @@ package WWW::Splunk;
 use strict;
 use warnings;
 
-our $VERSION = '2.09';
+our $VERSION = '2.10';
 
 use WWW::Splunk::API;
 use Carp;
