@@ -11,13 +11,12 @@ my $build = Module::Build->new(
 	requires => {
 		'perl' => 5.010,
 		'Carp' => 0,
+		'Date::Manip' => 0,
 		'Getopt::Long' => 0,
 		'HTTP::Request::Common' => 0,
 		'LWP::UserAgent' => 0,
 		'Pod::Usage' => 0,
-		'Test::More' => 0,
 		'XML::LibXML' => 0,
-		'Date::Manip' => 0,
 	},
 	build_requires => {
 		'Test::More' => 0,

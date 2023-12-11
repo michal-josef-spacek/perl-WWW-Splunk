@@ -14,6 +14,7 @@
 
  [OTHER]
  - Add bugtracker.
+ - Fix dependencies.
  - Fix test dependencies. We don't need dependencies for author tests.
  - Update author github username.
 
