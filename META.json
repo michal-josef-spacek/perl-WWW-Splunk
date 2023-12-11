@@ -4,13 +4,13 @@
       "Michal Josef Spacek <skim@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.422",
+   "generated_by" : "Module::Build version 0.4234",
    "license" : [
       "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : "2"
+      "version" : 2
    },
    "name" : "WWW-Splunk",
    "prereqs" : {
@@ -76,5 +76,6 @@
          "url" : "https://github.com/michal-josef-spacek/perl-WWW-Splunk"
       }
    },
-   "version" : "2.09"
+   "version" : "2.09",
+   "x_serialization_backend" : "JSON::PP version 4.16"
 }
