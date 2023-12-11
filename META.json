@@ -66,6 +66,9 @@
    },
    "release_status" : "stable",
    "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/michal-josef-spacek/perl-WWW-Splunk/issues"
+      },
       "license" : [
          "http://dev.perl.org/licenses/"
       ],

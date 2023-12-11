@@ -37,6 +37,7 @@ my $build = Module::Build->new(
 	},
 	meta_merge => {
 		resources => {
+			bugtracker => 'https://github.com/michal-josef-spacek/perl-WWW-Splunk/issues',
 			repository => 'https://github.com/michal-josef-spacek/perl-WWW-Splunk',
 		},
 	},
